@@ -85,23 +85,6 @@ class MTAE():
 
         mp_output = layers.Dense(PREDICT_Z_SIZE, activation='softmax', name='mp_output')(mp_hidden3)
 
-        # def reduce_cdf(pdf):
-        #     def reduce_sum(x):
-        #         cdf = [x[0]]
-        #         for i in range(1, x.shape[-1]):
-        #             cdf.append(tf.add(cdf[i-1], x[i]))
-        #         return tf.stack(cdf)
-        #     cdf = tf.vectorized_map(reduce_sum, elems=pdf)
-        #     return cdf
-
-        # def win_rate(inputs):
-        #     cdf = inputs[0]
-        #     bid_price = tf.reshape(tf.cast(inputs[1], dtype=tf.int32), shape=(-1,1))
-        #     line = tf.reshape(tf.range(tf.shape(bid_price)[0]), shape=(-1, 1))
-        #     bid_index = tf.concat([line, bid_price], axis=1)
-        #     bid_win_rate = tf.gather_nd(cdf, bid_index)
-        #     return bid_win_rate
-
         # WPPM
         bid_price_input = layers.Input(shape=(1,), name='bid_price_input')
         mp_cdf = layers.Lambda(self.reduce_cdf)(mp_output)
