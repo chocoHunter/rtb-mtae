@@ -1,6 +1,5 @@
 # Root path
-# root_path = '/Users/choco/experiment/rtb-mtae/'
-root_path = '/home/yhz/ex/rtb-mtae/'
+root_path = '/home/rtb-mtae/'
 
 # Data source path
 src_path = root_path + 'src/'

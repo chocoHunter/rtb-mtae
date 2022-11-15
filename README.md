@@ -21,12 +21,17 @@ Download link: https://pan.baidu.com/s/1ZGs4Ord4JLCjcB_aUgeWTg
 Extraction code: w2cw
 
 ### Data Preparation
-First step: Preprocess the data and encode the features.
+First step: Update the root path in config/base_config.py according to your own absolute path.
+```
+root_path = '/root/rtb-mtae/'
+```
+
+Second step: Preprocess the data and encode the features.
 ```
 python src/util/processor.py
 ```
 
-Second step: Train a CTR baseline model (lightgbm) for the truthful bidder. The truthful bidder is used to simulate bidding and split the original training logs into winning dataset and losing dataset.
+Third step: Train a CTR baseline model (lightgbm) for the truthful bidder. The truthful bidder is used to simulate bidding and split the original training logs into winning dataset and losing dataset.
 ```
 python src/util/truthful_bidder.py
 ```
